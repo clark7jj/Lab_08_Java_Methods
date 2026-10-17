@@ -10,6 +10,9 @@ public class DevTest
         String name = SafeInput.getNonZeroLenString(in, "Please enter your name");
         System.out.println("\nYou said your name was: " + name);
 
+        int favNumber = SafeInput.getInt(in, "Enter your favorite number");
+        System.out.println("\nYou said your favorite number was:" + favNumber);
+
 
     }
 }
