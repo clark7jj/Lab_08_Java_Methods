@@ -11,7 +11,7 @@ public class SafeInput {
         do {
             System.out.print("\n" + prompt + ": "); // show prompt add space
             retString = pipe.nextLine();
-            if (retString.length() == 0) ;
+            if (retString.length() == 0)
             {
                 System.out.println("\nYou must enter some characters!");
             }
