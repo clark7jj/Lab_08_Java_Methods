@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-public class SafeInput
-{
+public class SafeInput {
     /**
      * @param pipe   a Scanner opened to read from System.in
      * @param prompt prompt for the user
@@ -122,24 +121,40 @@ public class SafeInput
 
         do {
             System.out.print("\n" + prompt + "[" + low + " - " + high + "] : ");
-            if (pipe.hasNextDouble())
-            {
+            if (pipe.hasNextDouble()) {
                 retVal = pipe.nextDouble();
                 pipe.nextLine();
                 if (retVal >= low && retVal <= high) {
                     done = true;
-                } else
-                {
+                } else {
                     System.out.println("\nNumber is out of range [" + low + " - " + high + "] not: " + retVal);
                 }
-            } else
-                {
-                    trash = pipe.nextLine();
-                    System.out.println("You must enter a valid number");
-                }
+            } else {
+                trash = pipe.nextLine();
+                System.out.println("You must enter a valid number");
+            }
         }
         while (!done);
         return retVal;
     }
-}
 
+    /**
+     * Get a Yes or No confirmation from the user
+     *
+     * @param pipe   - Scanner to use for input
+     * @param prompt - prompt the user for a yes or no response
+     * @return - true if the user enters y or Y, false if the user enters n or N
+     */
+    public static boolean getYNConfirm(Scanner pipe, String prompt) {
+        String response = "";
+        do {
+            System.out.print("\n" + prompt + "(Y/N): ");
+            response = pipe.nextLine();
+            if (!response.equalsIgnoreCase("Y") && !response.equalsIgnoreCase("N")) {
+                System.out.println("You must enter either Y or N!");
+            }
+        }
+        while (!response.equalsIgnoreCase("Y") && !response.equalsIgnoreCase("N"));
+        return response.equalsIgnoreCase("Y");
+    }
+}

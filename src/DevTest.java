@@ -18,12 +18,12 @@ public class DevTest
 
         int age = SafeInput.getRangedInt(in, "Enter your age", 10, 20);
         System.out.println("\nYou said your age is: " + age);
-*/
+
         double price = SafeInput.getRangedDouble(in, "Enter a price", 1.50, 10.50);
         System.out.println("\nThe price of the item is: $ " + price);
-
-
-
+*/
+        boolean wantstoContinue = SafeInput.getYNConfirm(in,"Would you like to continue?" );
+        System.out.println("\nYour choice was: " + wantstoContinue);
 
 
 
