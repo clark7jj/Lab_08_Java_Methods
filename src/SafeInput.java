@@ -127,7 +127,7 @@ public class SafeInput {
                 if (retVal >= low && retVal <= high) {
                     done = true;
                 } else {
-                    System.out.println("\nNumber is out of range [" + low + " - " + high + "] not: " + retVal);
+                    System.out.println("\nNumber is out of range [" + low + " - " + high + "] : " + retVal);
                 }
             } else {
                 trash = pipe.nextLine();
