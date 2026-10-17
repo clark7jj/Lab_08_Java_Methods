@@ -13,6 +13,9 @@ public class DevTest
         int favNumber = SafeInput.getInt(in, "Enter your favorite number");
         System.out.println("\nYou said your favorite number was:" + favNumber);
 
+        double favDecimal = SafeInput.getDouble(in, "Please enter your favorite decimal value");
+        System.out.println("\nYou said your favorite decimal was: " + favDecimal);
+
 
     }
 }

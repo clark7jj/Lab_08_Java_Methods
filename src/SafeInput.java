@@ -45,9 +45,30 @@ public class SafeInput
         } while (!done);
         return retVal;
     }
+
+    /**
+     * Get a double value with no constraints
+     *
+     * @param pipe   - Scanner instance to read the data System.in in most cases
+     * @param prompt - input prompt msg should not include range info
+     * @return - unconstrained double value
+     */
+    public static double getDouble(Scanner pipe, String prompt) {
+        double retVal = 0.0;
+        String trash = "";
+        boolean done = false;
+        do
+        {
+            System.out.print("\n" + prompt + ":");
+            if (pipe.hasNextDouble()) {
+                retVal = pipe.nextDouble();
+                pipe.nextLine();
+                done = true;
+            } else {
+                trash = pipe.nextLine();
+                System.out.println("You must enter a double " + trash);
+            }
+        } while (!done);
+        return retVal;
+    }
 }
-/**
- *
- *
- *
- */
