@@ -16,6 +16,13 @@ public class DevTest
         double favDecimal = SafeInput.getDouble(in, "Please enter your favorite decimal value");
         System.out.println("\nYou said your favorite decimal was: " + favDecimal);
 
+        int age = SafeInput.getRangedInt(in, "Enter your age", 10, 20);
+        System.out.println("\nYou said your age is: " + age);
+
+
+
+
+
 
     }
 }

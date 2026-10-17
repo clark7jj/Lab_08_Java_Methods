@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-public class SafeInput
-{
+public class SafeInput {
     /**
      * @param pipe   a Scanner opened to read from System.in
      * @param prompt prompt for the user
@@ -57,8 +56,7 @@ public class SafeInput
         double retVal = 0.0;
         String trash = "";
         boolean done = false;
-        do
-        {
+        do {
             System.out.print("\n" + prompt + ":");
             if (pipe.hasNextDouble()) {
                 retVal = pipe.nextDouble();
@@ -71,4 +69,40 @@ public class SafeInput
         } while (!done);
         return retVal;
     }
+
+    /**
+     * Get an integer value from the user within a specified inclusive low-high range
+     *
+     * @param pipe   - Scanner to use for input
+     * @param prompt - User prompt
+     * @param low    - low value for the range
+     * @param high   - high value for the range
+     * @return an int value provided by the user within the specified range
+     */
+    public static int getRangedInt(Scanner pipe, String prompt, int low, int high) {
+        int retVal = 0;
+        String trash = "";
+        boolean done = false;
+
+        do {
+            System.out.print("\n" + prompt + "[" + low + " - " + high + "]: ");
+            if (pipe.hasNextInt()) {
+                retVal = pipe.nextInt();
+                pipe.nextLine();
+                if (retVal >= low && retVal <= high) {
+                    done = true;
+                } else {
+                    System.out.println("\nInteger is out of range [" + low + " - " + high + "] not: " + retVal);
+                }
+            } else {
+                {
+                    trash = pipe.nextLine();
+                    System.out.println("You must enter a valid integer " + trash);
+                }
+            }
+        }
+        while (!done);
+        return retVal;
+    }
 }
+
