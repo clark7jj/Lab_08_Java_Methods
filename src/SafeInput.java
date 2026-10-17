@@ -157,4 +157,31 @@ public class SafeInput {
         while (!response.equalsIgnoreCase("Y") && !response.equalsIgnoreCase("N"));
         return response.equalsIgnoreCase("Y");
     }
+
+/**
+ * Get a string that matches a RegEx pattern! This is a very powerful method
+ * @param pipe - Scanner instance to read the data System.in in most cases
+ * @param prompt - prompt for user
+ * @param regExPattern - java style RegEx pattern to constrain the input
+ * @return - a String that matches the RegEx pattern supplied
+ */
+public static String getRegExString (Scanner pipe, String prompt, String regExPattern)
+{
+    String response = "";
+    boolean gotAval = false;
+    do
+    {
+        System.out.print("\n" + prompt + ":");
+        response = pipe.nextLine();
+        if (response.matches(regExPattern))
+        {
+            gotAval = true;
+        } else
+        {
+            System.out.println("\n" + response + " must match the pattern " + regExPattern);
+            System.out.println("Try again!");
+        }
+    } while (!gotAval);
+      return response;
+}
 }

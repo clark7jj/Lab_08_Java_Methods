@@ -21,11 +21,12 @@ public class DevTest
 
         double price = SafeInput.getRangedDouble(in, "Enter a price", 1.50, 10.50);
         System.out.println("\nThe price of the item is: $ " + price);
+
+        boolean wantsToContinue = SafeInput.getYNConfirm(in,"Would you like to continue?" );
+        System.out.println("\nYour choice was: " + wantsToContinue);
 */
-        boolean wantstoContinue = SafeInput.getYNConfirm(in,"Would you like to continue?" );
-        System.out.println("\nYour choice was: " + wantstoContinue);
-
-
+        String firstName = SafeInput.getRegExString(in, "Enter your first name", "[A-Za-z]+");
+        System.out.println("\nYour name is: " + firstName);
 
     }
 }
